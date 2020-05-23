@@ -1,0 +1,4 @@
+[submodule "packages/monkey-api"]
+	path = packages/monkey-api
+	url = git@github.com:adaschevici/jungle-jim.git
+    ignore = dirty

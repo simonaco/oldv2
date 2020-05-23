@@ -1,0 +1,61 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+
+jobs:
+  build-and-test-components:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: npm run bootstrap
+            - run: npm run snapshot:test
+            - run: npm run build:components
+            - save_cache:
+                key: components-lib-{{ .Revision }}
+                paths:
+                  - packages/component-library/lib
+                  - packages/component-library/lib/fonts
+  test-goodreads:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - restore_cache:
+                keys:
+                  - components-lib-{{ .Revision }}
+            - run: npm run bootstrap
+            - run: npm run test:integration --record --key=$CYPRESS_RECORD_KEY
+  build-goodreads:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - restore_cache:
+                keys:
+                  - components-lib-{{ .Revision }}
+            - run: npm run bootstrap
+            - run: npm run build:app
+            - save_cache:
+                key: goodreads-v2-{{ .Revision }}
+                paths:
+                  - packages/goodreads/build
+workflows:
+  build-components-and-app:
+    jobs:
+      - build-and-test-components
+      - test-goodreads:
+          requires:
+            - build-and-test-components
+      - build-goodreads:
+          requires:
+            - build-and-test-components
+      - deploy-goodreads:
+          requires:
+            - build-goodreads

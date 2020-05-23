@@ -1,0 +1,5 @@
+{
+  "nodeVersion": "system",
+  "baseUrl": "http://127.0.0.1:3000",
+  "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*"]
+}

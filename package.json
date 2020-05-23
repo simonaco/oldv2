@@ -1,0 +1,58 @@
+{
+  "name": "@goodreads-v2/root",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "lerna clean",
+    "bootstrap": "npm i && lerna bootstrap",
+    "clean:root": "rm -rf node_modules",
+    "clean:locks": "find . -type f -name 'package-lock.json' -exec rm {} +",
+    "clean:all": "npm-run-all clean clean:root clean:locks",
+    "bootstrap:all": "npm i && npm run bootstrap",
+    "build:components": "lerna exec npm run build --scope=@goodreads-v2/component-library",
+    "build:storybook": "lerna exec npm run build-storybook --scope=@goodreads-v2/component-library",
+    "build:app": "lerna exec npm run build --scope=@goodreads-v2/goodreads",
+    "start:storybook": "lerna exec npm run storybook --scope=@goodreads-v2/component-library",
+    "static:storybook": "docker run --rm -p 8080:80 -v $(pwd)/packages/component-library/storybook-static/:/usr/share/nginx/html nginx",
+    "static:goodreads": "docker run --rm -p 8080:80 -v $(pwd)/packages/goodreads/build/:/usr/share/nginx/html nginx",
+    "start:goodreads": "lerna exec npm start --scope=@goodreads-v2/goodreads",
+    "start:server": "lerna exec npm run server:dev --scope=jungle-jim",
+    "start:test-server": "lerna exec npm run server:test --scope=jungle-jim",
+    "start:test-server-ci": "lerna exec npm run server:test-ci --scope=jungle-jim",
+    "start:app": "npm-run-all --parallel start:server start:goodreads",
+    "snapshot:test": "lerna exec npm run test --scope=@goodreads-v2/component-library",
+    "test:app": "lerna exec npm run test --scope=@goodreads-v2/goodreads",
+    "start:app-test": "npm-run-all --parallel start:test-server start:goodreads",
+    "start:cy-app": "lerna exec cypress open --scope=@goodreads-v2/goodreads",
+    "test:cy": "lerna exec cypress run --scope=@goodreads-v2/goodreads",
+    "test:integration": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test start:app-test http-get://127.0.0.1:3000 test:cy"
+  },
+  "keywords": [
+    "goodreads",
+    "react-advanced",
+    "monorepo"
+  ],
+  "author": "@arty_das",
+  "license": "MIT",
+  "dependencies": {
+    "@rebass/forms": "^4.0.6",
+    "@rebass/layout": "^4.0.6",
+    "create-react-app": "^3.4.1",
+    "lerna": "^3.20.2",
+    "netlify-cli": "^2.50.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "rebass": "^4.0.7",
+    "serve": "^11.3.0",
+    "styled-components": "^5.1.0",
+    "styled-system": "^5.1.5"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.4",
+    "react-test-renderer": "^16.13.1",
+    "start-server-and-test": "^1.11.0"
+  }
+}

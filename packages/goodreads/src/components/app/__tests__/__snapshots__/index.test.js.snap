@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test suite for app component renders app component and matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="App"
+      >
+        <div
+          class="css-9suweq"
+        >
+          <a
+            href="/"
+          >
+            <h1
+              class="sc-AxjAm bwqKbb"
+              color="#2d8fd5"
+              font-family="Artifika"
+              font-size="12,12,13,13,13,14"
+              font-weight="bold"
+            >
+              DashBoard
+            </h1>
+          </a>
+          <div
+            class="css-1ntkiwo"
+          />
+          <a
+            href="/login"
+          >
+            <h1
+              class="sc-AxjAm bwqKbb"
+              color="#2d8fd5"
+              font-family="Artifika"
+              font-size="12,12,13,13,13,14"
+              font-weight="bold"
+            >
+              Login
+            </h1>
+          </a>
+        </div>
+        <main
+          style="height: 70vh;"
+        >
+          <h1
+            class="sc-AxjAm jubnsp"
+            color="#2d8fd5"
+            font-family="Artifika"
+            font-size="12,12,13,13,13,14"
+            font-weight="700"
+          >
+            Books
+          </h1>
+          <div
+            class="css-13ieuz9"
+          />
+        </main>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="App"
+    >
+      <div
+        class="css-9suweq"
+      >
+        <a
+          href="/"
+        >
+          <h1
+            class="sc-AxjAm bwqKbb"
+            color="#2d8fd5"
+            font-family="Artifika"
+            font-size="12,12,13,13,13,14"
+            font-weight="bold"
+          >
+            DashBoard
+          </h1>
+        </a>
+        <div
+          class="css-1ntkiwo"
+        />
+        <a
+          href="/login"
+        >
+          <h1
+            class="sc-AxjAm bwqKbb"
+            color="#2d8fd5"
+            font-family="Artifika"
+            font-size="12,12,13,13,13,14"
+            font-weight="bold"
+          >
+            Login
+          </h1>
+        </a>
+      </div>
+      <main
+        style="height: 70vh;"
+      >
+        <h1
+          class="sc-AxjAm jubnsp"
+          color="#2d8fd5"
+          font-family="Artifika"
+          font-size="12,12,13,13,13,14"
+          font-weight="700"
+        >
+          Books
+        </h1>
+        <div
+          class="css-13ieuz9"
+        />
+      </main>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
