@@ -57,6 +57,3 @@ workflows:
       - build-goodreads:
           requires:
             - build-and-test-components
-      - deploy-goodreads:
-          requires:
-            - build-goodreads
