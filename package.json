@@ -26,7 +26,7 @@
     "start:app-test": "npm-run-all --parallel start:test-server start:goodreads",
     "start:cy-app": "lerna exec cypress open --scope=@goodreads-v2/goodreads",
     "test:cy": "lerna exec cypress run --scope=@goodreads-v2/goodreads",
-    "test": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test http-get://localhost:3000 test:cy"
+    "test": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test start:goodreads http-get://localhost:3000 test:cy"
   },
   "keywords": [
     "goodreads",

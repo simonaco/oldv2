@@ -1,63 +1,14 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.1.0
-  node: circleci/node@1.1.6
 
-jobs:
-  build-and-test-components:
-    executor:
-      name: node/default
-    steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: npm run bootstrap
-            - run: npm run snapshot:test
-            - run: npm run build:components
-            - save_cache:
-                key: components-lib-{{ .Revision }}
-                paths:
-                  - packages/component-library/lib
-                  - packages/component-library/lib/fonts
-  test-goodreads:
-    executor:
-      name: node/default
-    steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - restore_cache:
-                keys:
-                  - components-lib-{{ .Revision }}
-            - run: npm run bootstrap
-            - run: npm run test:integration
-  build-goodreads:
-    executor:
-      name: node/default
-    steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - restore_cache:
-                keys:
-                  - components-lib-{{ .Revision }}
-            - run: npm run bootstrap
-            - run: npm run build:app
-            - save_cache:
-                key: goodreads-v2-{{ .Revision }}
-                paths:
-                  - packages/goodreads/build
 workflows:
   build-components-and-app:
     jobs:
-      - build-and-test-components
       - cypress/install:
-          build: npm run bootstrap
+          build: npm run bootstrap:all
       - cypress/run:
           requires:
             - cypress/install
-          start: npm run start:app-test
+          start: npm run start:test-server
           wait-on: 'http://localhost:5000'
-      - build-goodreads:
-          requires:
-            - build-and-test-components
