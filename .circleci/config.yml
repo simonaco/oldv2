@@ -6,7 +6,7 @@ workflows:
   build-components-and-app:
     jobs:
       - cypress/install:
-          build: npm run bootstrap:all
+          build: npm run bootstrap
       - cypress/run:
           requires:
             - cypress/install
