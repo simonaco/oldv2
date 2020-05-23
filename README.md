@@ -1,1 +1,1 @@
-## This is a goodreads app tada
+## This is a goodreads app
