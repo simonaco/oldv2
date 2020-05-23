@@ -30,7 +30,7 @@ jobs:
                 keys:
                   - components-lib-{{ .Revision }}
             - run: npm run bootstrap
-            - run: npm run test:integration --record --key=$CYPRESS_RECORD_KEY
+            - run: npm run test:integration
   build-goodreads:
     executor:
       name: node/default
