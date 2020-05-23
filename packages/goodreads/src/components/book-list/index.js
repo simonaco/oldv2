@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react'
 import PropTypes from 'prop-types'
-import { List } from 'react-virtualized'
 import {
   fetchBooks,
   fetchBooksInProgress,
@@ -26,7 +25,7 @@ class BookList extends Component {
     fetchBooks: PropTypes.func.isRequired,
   }
 
-  componentDidUpdate = prevProps => {
+  componentDidUpdate = (prevProps) => {
     const { username: prevUsername } = prevProps
     const { dispatch, username } = this.props
     if (prevUsername !== username) {
@@ -51,7 +50,7 @@ class BookList extends Component {
             <Artifika>Currently reading</Artifika>
             {booksInProgress.length ? (
               <BookGrid>
-                {booksInProgress.map(book => (
+                {booksInProgress.map((book) => (
                   <BookCard
                     key={`${book.id}${book.title}`}
                     authenticated={authenticated}
@@ -69,7 +68,7 @@ class BookList extends Component {
         )}
         <Artifika>Books</Artifika>
         <BookGrid>
-          {booksCollection.map(book => (
+          {booksCollection.map((book) => (
             <BookCard
               key={`${book.id}${book.title}`}
               authenticated={authenticated}
