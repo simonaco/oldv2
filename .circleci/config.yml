@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@1.1.0
   node: circleci/node@1.1.6-browsers
 
 jobs:
@@ -51,9 +51,13 @@ workflows:
   build-components-and-app:
     jobs:
       - build-and-test-components
-      - test-goodreads:
+      - cypress/install:
+          build: npm run bootstrap
+      - cypress/run:
           requires:
-            - build-and-test-components
+            - cypress/install
+          start: npm run start:app-test
+          wait-on: 'http://localhost:5000'
       - build-goodreads:
           requires:
             - build-and-test-components
